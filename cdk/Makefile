@@ -9,7 +9,7 @@ help: ## Prints this help message
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 lint: ## Automatically fix code style with eslint and prettier.
-	npm run lint -- --fix
+	npm run lint
 
 init: ## init accountId=<accountId> env=<env>. Init cdk stack to new AWS account
 	npm run build \
