@@ -18,6 +18,11 @@ init: ## init accountId=<accountId> env=<env>. Init cdk stack to new AWS account
 		&& aws-vault exec ${env} \
 		-- cdk bootstrap \
 		--context environment=${env} aws://${accountId}/eu-west-1 \ 
+		
+synth: ## Run CDK synth.
+	npm run build \
+		&& cdk synth \
+		--context environment=${env}
 
 diff: ## Check modifications before deploy.
 	npm run build \
